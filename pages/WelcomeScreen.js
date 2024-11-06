@@ -6,14 +6,20 @@ import {
   Button,
   StyleSheet,
   ScrollView,
+  Image,
 } from 'react-native';
 
 const WelcomeScreen = ({ user, handleAuthentication }) => {
   return (
     <View style={styles.authContainer}>
-      <Text style={styles.title}>Welcome</Text>
+      <Text style={styles.title}>Welcome to Travello App</Text>
+      <Image
+        source={require('../assets/images/travel.jpg')}
+        style={styles.mainImage}
+      ></Image>
+      <Text style={styles.userInfo}>User Info</Text>
       <Text style={styles.emailText}>{user.email}</Text>
-      <Button title="Logout" onPress={handleAuthentication} color="#e74c3c" />
+      <Button title="Logout" onPress={handleAuthentication} color="red" />
     </View>
   );
 };
@@ -36,8 +42,14 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 36,
-    marginBottom: 48,
+    marginBottom: 50,
     textAlign: 'center',
+  },
+  userInfo: {
+    fontSize: 22,
+    textAlign: 'center',
+    marginBottom: 20,
+    fontWeight: 'bold',
   },
   input: {
     height: 40,
@@ -61,6 +73,13 @@ const styles = StyleSheet.create({
     fontSize: 18,
     textAlign: 'center',
     marginBottom: 20,
+  },
+  mainImage: {
+    width: 280,
+    height: 280,
+    padding: 0,
+    marginBottom: 50,
+    alignSelf: 'center',
   },
 });
 
