@@ -7,6 +7,7 @@ import {
   StyleSheet,
   ScrollView,
 } from 'react-native';
+
 import { initializeApp } from '@firebase/app';
 import {
   getAuth,
@@ -15,6 +16,8 @@ import {
   onAuthStateChanged,
   signOut,
 } from '@firebase/auth';
+
+import WelcomeScreen from '../pages/WelcomeScreen';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyB3KxWWO8Y7qcEZn9KaE1uUB834YNn6mI8',
@@ -73,15 +76,6 @@ const AuthScreen = ({
   );
 };
 
-const AuthenticatedScreen = ({ user, handleAuthentication }) => {
-  return (
-    <View style={styles.authContainer}>
-      <Text style={styles.title}>Welcome</Text>
-      <Text style={styles.emailText}>{user.email}</Text>
-      <Button title="Logout" onPress={handleAuthentication} color="#e74c3c" />
-    </View>
-  );
-};
 export default App = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -124,7 +118,7 @@ export default App = () => {
     <ScrollView contentContainerStyle={styles.container}>
       {user ? (
         // Show user's email if user is authenticated
-        <AuthenticatedScreen
+        <WelcomeScreen
           user={user}
           handleAuthentication={handleAuthentication}
         />
