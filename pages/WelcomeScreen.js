@@ -17,6 +17,7 @@ const WelcomeScreen = ({ user, handleAuthentication }) => {
         source={require('../assets/images/travel.jpg')}
         style={styles.mainImage}
       ></Image>
+      <Button title="Explore" style={styles.exploreButton}></Button>
       <Text style={styles.userInfo}>User Info</Text>
       <Text style={styles.emailText}>{user.email}</Text>
       <Button title="Logout" onPress={handleAuthentication} color="red" />
@@ -42,13 +43,14 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 36,
-    marginBottom: 50,
+    marginBottom: 30,
     textAlign: 'center',
   },
   userInfo: {
     fontSize: 22,
     textAlign: 'center',
-    marginBottom: 20,
+    marginBottom: 5,
+    marginTop: 20,
     fontWeight: 'bold',
   },
   input: {
@@ -80,6 +82,13 @@ const styles = StyleSheet.create({
     padding: 0,
     marginBottom: 50,
     alignSelf: 'center',
+  },
+  exploreButton: {
+    backgroundColor: '#FF0000',
+    fontSize: 16,
+    textAlign: 'center',
+    borderRadius: 50,
+    paddingVertical: 12,
   },
 });
 
