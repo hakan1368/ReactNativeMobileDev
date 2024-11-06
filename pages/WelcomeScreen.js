@@ -9,10 +9,9 @@ import {
   ScrollView,
   Image,
 } from 'react-native';
+import ExploreScreen from './ExploreScreen';
 
-const WelcomeScreen = ({ user, handleAuthentication }) => {
-  const navigation = useNavigation();
-
+const WelcomeScreen = ({ navigation, user, handleAuthentication }) => {
   return (
     <View style={styles.authContainer}>
       <Text style={styles.title}>Welcome to Travello App</Text>
@@ -20,7 +19,11 @@ const WelcomeScreen = ({ user, handleAuthentication }) => {
         source={require('../assets/images/travel.jpg')}
         style={styles.mainImage}
       ></Image>
-      <Button title="Explore" style={styles.exploreButton}></Button>
+      <Button
+        title="Explore"
+        style={styles.exploreButton}
+        onPress={() => navigation.navigate('Explore')}
+      ></Button>
       <Text style={styles.userInfo}>User Info</Text>
       <Text style={styles.emailText}>{user.email}</Text>
       <Button title="Logout" onPress={handleAuthentication} color="red" />
@@ -30,14 +33,16 @@ const WelcomeScreen = ({ user, handleAuthentication }) => {
 
 const styles = StyleSheet.create({
   container: {
-    flexGrow: 1,
+    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    padding: 16,
     backgroundColor: '#f0f0f0',
   },
   authContainer: {
-    width: '80%',
+    flex: 1,
+    alignItems: 'center',
+    alignContent: 'center',
+    justifyContent: 'center',
     maxWidth: 400,
     backgroundColor: '#fff',
     padding: 16,
@@ -49,6 +54,7 @@ const styles = StyleSheet.create({
     marginBottom: 30,
     textAlign: 'center',
   },
+
   userInfo: {
     fontSize: 22,
     textAlign: 'center',
