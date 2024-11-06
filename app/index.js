@@ -18,6 +18,7 @@ import {
 } from '@firebase/auth';
 
 import WelcomeScreen from '../pages/WelcomeScreen';
+import ExploreScreen from '../pages/ExploreScreen';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyB3KxWWO8Y7qcEZn9KaE1uUB834YNn6mI8',

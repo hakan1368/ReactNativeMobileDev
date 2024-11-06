@@ -1,3 +1,4 @@
+import { useNavigation } from 'expo-router';
 import React, { useState, useEffect } from 'react';
 import {
   View,
@@ -10,6 +11,8 @@ import {
 } from 'react-native';
 
 const WelcomeScreen = ({ user, handleAuthentication }) => {
+  const navigation = useNavigation();
+
   return (
     <View style={styles.authContainer}>
       <Text style={styles.title}>Welcome to Travello App</Text>
